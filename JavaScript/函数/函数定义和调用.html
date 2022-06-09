@@ -7,14 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <button id="btn"></button>
 </body>
 </html>
 
 <script>
   //arguments只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。
-  click(10,20,30)
-  function click(x) {
+  //click(10,20,30)
+  let btn = document.getElementById("btn")
+  btn.onclick = function () {
     console.log(arguments);
+  }
+  //rest
+  func1(1,2,3,4,5,6,7)
+  function func1(x,y,...rest) {
+    console.log('rest',rest);
+    console.log('arguments',arguments);
   }
 </script>

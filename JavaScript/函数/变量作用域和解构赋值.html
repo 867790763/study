@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+  //JavaScript的函数可以嵌套，此时，内部函数可以访问外部函数定义的变量，反过来则不行
+  function foo() {
+    var x = 1;
+    function bar() {
+      var x = 'A';
+      console.log('x in bar() = ' + x); // 'A'
+    }
+    console.log('x in foo() = ' + x); // 1
+    bar();
+  };
+  foo();
+  //JavaScript的函数在查找变量时从自身函数定义开始，从“内”向“外”查找。如果内部函数定义了与外部函数重名的变量，则内部函数的变量将“屏蔽”外部函数的变量。
+
+  //变量提升
+  //JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部：
+  function foo1() {
+    var x = 'Hello, ' + y;
+    console.log(x);
+    var y = 'Bob';
+  }
+  foo1();
+
+  //全局作用域
+  //不在任何函数内定义的变量就具有全局作用域。
+  //实际上，JavaScript默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性
+  var course = 'Learn JavaScript';
+  console.log(course); // 'Learn JavaScript'
+  console.log(window.course); // 'Learn JavaScript'
+</script>
