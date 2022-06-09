@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<!-- 相同之处：三个都会将此时进行的语句停止。
+
+不同之处：
+
+1、break：是立即结束语句，并跳出语句，进行下个语句执行。
+
+2、continue：结束本次循环，循环变量继续递增或递减，开始下次循环
+
+3、return：停止函数,但是不能跳出整个循环。
+
+4、使用的语句环境不一样，break和continue是用在for或switch语句中，return是用在函数语句中 -->
+
+<script>
+  let arr = [1,2,3,4,5,6,7]
+  //break
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 3) {
+      break
+      //continue
+    }
+    console.log('break',arr[i]);
+    
+  }
+  //continue
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 3) {
+      continue
+    }
+    console.log('continue', arr[i]);
+    
+  }
+  console.log('continue');
+  xunhuan()
+  function xunhuan() {
+    console.log('return1');
+    arr.forEach(function (item, index) {
+      if (item === 3) {
+        return
+      }
+      console.log('return', item);
+    });
+    console.log('return2');
+  }
+</script>

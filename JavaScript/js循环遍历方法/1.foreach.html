@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  //foreach方法用于调用每个函数，并将元素传递给回调函数。数组中的每个值调用回调函数。其语法如下
+  let arr = ['a','b','c']
+  let arr1 = ["1","2","3",]
+  //用法：
+  //第一个参数为回调函数，是必传的，其中有三个参数：
+  //currentValue:必传,当前元素
+  //index:可选,当前元素的索引值
+  //arr:可选,当前元素所属的数组对象
+  //array.forEach(function(currentValue, index, arr), thisValue)
+  arr.forEach(function (item, index, array) {
+    console.log(index + ':' + item);
+  });
+  //第二个参数，用来绑定回调函数内部的this变量(前提是回调函数不能是箭头函数,因为箭头函数没有this)
+  arr.forEach((item,index,arr)=> {
+    console.log(index + ':' + item);
+    console.log(this[index]);
+  }, arr1);
+
+  arr.forEach(function (item,index,array) {
+    console.log(index+':'+item);
+    console.log(this[index]);
+  },arr1);
+  //foreach方法不会改变原数组,也没有返回值
+  //foreach方法无法使用break,continue跳出循环,使用return时,效果和for循环中使用continue一只
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  //Array遍历时可以使用下标
+  //Set Map遍历时无法使用下标
+  //为了统一集合类型，ES6标准引入了新的类型：iterable，Array Set Map都属于iterable属性
+  //具有iterable类型集合可以通过for...of循环来遍历
+
+  //Set
+  let set1 = new Set()
+  //去除重复项
+  let arr1 = new Set([1,1,1,2,2,3,3,4,5,6,6,1])
+  console.log([...arr1]);
+  //看数组的并集
+  let arr2 = [1,2,3,4]
+  let arr3 = [3,4,5,6]
+  let set = new Set([...arr2,...arr3])
+  // set.forEach((item,index)=>{
+  //   console.log(index+':'+ set[index]);
+  // })
+  let set2 = new Set()
+  for (const iterator of set) {
+    console.log(iterator);
+    if (iterator === 3) {
+      set.delete(iterator) 
+    }
+    set2.add(iterator)
+  }
+  console.log([...set2]);
+  console.log([...set]);
+  //set 有add添加，delete删除，clear清楚所有，size长度
+
+  //Map
+  // var m = new Map([['Michael', 95], ['Bob', 75], ['Tracy', 85]]);
+  // console.log('Map',m.get('Bob'))
+  var m = new Map(); // 空Map
+  m.set('Adam', 67); // 添加新的key-value
+  m.set('Bob', 59);
+  m.has('Adam'); // 是否存在key 'Adam': true
+  m.get('Adam'); // 67
+  m.set('Adam', 77); // 添加新的key-value
+  console.log('支持set和map');
+  console.log(m);
+</script>
